@@ -35,7 +35,7 @@ email = "uzivatel@example.com"
 # - ověř, že v řetězci je znak "@"
 # - ověř, že končí na ".com"
 # - vytiskni True, pokud obě podmínky platí
-print(email.endswith(".com") and "@" in email ) 
+print(email.endswith(".com") and "@" in email ) wdwdwd
 
 # # EXAMPLE: 
 
