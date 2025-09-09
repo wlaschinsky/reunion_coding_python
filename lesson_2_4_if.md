@@ -254,3 +254,37 @@ Výsledky:
 - Dáváš `else` vždy, když chceš pokrýt i „druhou možnost“.  
 
 💡 Typická chyba: dát dva samostatné `if` místo `if` + `else`. Pak se může stát, že se spustí víc větví, než bys čekal.
+
+
+# 🐍 Python – Kombinace podmínek
+
+## 🔹 Logické operátory
+- `and` → všechny podmínky musí být True
+- `or`  → stačí, aby aspoň jedna podmínka byla True
+- `not` → negace (obrátí hodnotu True ↔ False)
+
+---
+
+## 🔹 Příklady
+
+```python
+# AND – všechny musí platit
+vek = 20
+obcan = True
+if vek >= 18 and obcan:
+    print("Může volit")   # True AND True → True
+
+# OR – stačí jedna
+jmeno = "Anna"
+if jmeno == "Anna" or jmeno == "Petr":
+    print("Speciální přístup")  # True OR False → True
+
+# NOT – negace
+heslo = ""
+if not heslo:   # heslo je prázdný string → False, ale NOT obrátí na True
+    print("Heslo chybí")
+
+# Intervaly – čitelnější zápis
+x = 7
+if 1 <= x <= 10:
+    print("x je mezi 1 a 10")   # True
