@@ -24,3 +24,4 @@
 # Snědl jsi: ['banán', 'vejce']
 # Celkem kalorií: 245
 # Průměr: 122.5 kcal/položka
+

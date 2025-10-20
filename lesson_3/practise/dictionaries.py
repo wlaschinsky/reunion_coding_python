@@ -29,3 +29,10 @@
 # - ověř, jestli se shoduje s hodnotou v login["password"]
 # - pokud ano → vytiskni "Přístup povolen"
 # - jinak → "Špatné heslo"
+
+# 1 - DONE
+uzivatel = {"jmeno": "Samuel", "vek": 55, "mesto": "Praha "}
+print(uzivatel["jmeno"])
+
+
+#2 - 
