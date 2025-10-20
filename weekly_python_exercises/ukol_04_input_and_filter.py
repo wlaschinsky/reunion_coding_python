@@ -20,3 +20,15 @@
 
 # BONUS:
 # Co se stane, když `input()` nenecháš převést na `int` a zkusíš porovnat s číslem?
+
+cisla = []
+filtrovana_cisla = []
+for i in range(5):
+    nove_cislo = int(input("Zadej cislo: "))
+    cisla.append(nove_cislo)
+    if nove_cislo > 10:
+        filtrovana_cisla.append(nove_cislo)
+        
+print("Původní čísla: ", cisla)            
+print("Čísla větší než 10: ", filtrovana_cisla)            
+

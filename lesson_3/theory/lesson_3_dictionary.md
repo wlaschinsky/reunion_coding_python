@@ -41,28 +41,156 @@ print(data)  # (1, [2, 3, 5], 4)
 
 ---
 
-## 🧾 SLOVNÍK `{key: value}`
-- **Měnitelný (mutable)**.
-- Přístup přes **klíče** místo indexů.
-- Klíče musí být **unikátní** a **neměnitelné** (např. `string`, `číslo`, `tuple`).
-- Hodnota může být **libovolná**.
+# 🧾 Slovníky (`dict`) – základní princip
 
-### 🔍 Příklad:
+## 🔹 Co je slovník
+Slovník v Pythonu je **kolekce dat ve formátu klíč → hodnota**.  
+Představ si ho jako tabulku nebo kartotéku – **každý klíč** (např. `"jméno"`) má svou **hodnotu** (např. `"Samuel"`).
+
+### 💬 Příklad:
 ```python
-student = {"jmeno": "Eva", "vek": 20}
-student["vek"] = 21              # změna hodnoty
-student["obor"] = "Informatika" # přidání nové dvojice
-del student["jmeno"]             # smazání klíče
-print(student)                   # {'vek': 21, 'obor': 'Informatika'}
+uzivatel = {
+    "jmeno": "Samuel",
+    "vek": 29,
+    "mesto": "Brno"
+}
 ```
 
-### 🎯 Přístup k hodnotám:
+`uzivatel` je slovník.  
+Klíče: `"jmeno"`, `"vek"`, `"mesto"`  
+Hodnoty: `"Samuel"`, `29`, `"Brno"`
+
+---
+
+## 🔹 Vlastnosti slovníku
+- Měnitelný (**mutable**) – lze přidávat, měnit, mazat hodnoty.  
+- Klíče musí být **unikátní** (nemohou se opakovat).  
+- Klíče musí být **neměnitelné** (např. string, int, tuple).  
+- Hodnoty mohou být **libovolné** (čísla, texty, listy, jiné slovníky).  
+- Pořadí klíčů je zachováno (od Pythonu 3.7+).
+
+---
+
+## 🔹 Vytvoření slovníku
 ```python
-print(student["vek"])            # 21
+# 1️⃣ běžně pomocí složených závorek
+osoba = {"jmeno": "Anna", "vek": 25}
+
+# 2️⃣ prázdný slovník
+data = {}
+
+# 3️⃣ pomocí funkce dict()
+student = dict(jmeno="Eva", vek=22)
 ```
 
-### ✅ Ověření existence klíče:
+---
+
+## 🔹 Přístup k hodnotám
 ```python
-print("vek" in student)          # True
-print("jmeno" in student)        # False
+print(osoba["jmeno"])  # Anna
 ```
+❗Pokud se pokusíš přistoupit ke klíči, který neexistuje:
+```python
+print(osoba["mesto"])  # ❌ KeyError
+```
+
+Bezpečnější varianta:
+```python
+print(osoba.get("mesto"))  # ✅ None (program nespadne)
+```
+
+---
+
+## 🔹 Přidání nového klíče
+```python
+osoba["mesto"] = "Praha"
+print(osoba)
+# {'jmeno': 'Anna', 'vek': 25, 'mesto': 'Praha'}
+```
+
+---
+
+## 🔹 Změna hodnoty
+```python
+osoba["vek"] = 26
+print(osoba)
+# {'jmeno': 'Anna', 'vek': 26, 'mesto': 'Praha'}
+```
+
+---
+
+## 🔹 Mazání klíče
+```python
+del osoba["mesto"]
+print(osoba)
+# {'jmeno': 'Anna', 'vek': 26}
+```
+Pokud smažeš neexistující klíč:
+```python
+del osoba["adresa"]  # ❌ KeyError
+```
+
+---
+
+## 🔹 Další způsoby mazání
+```python
+# odstraní a zároveň vrátí hodnotu
+hodnota = osoba.pop("vek")
+print(hodnota)   # 26
+
+# odstraní všechny položky
+osoba.clear()
+print(osoba)  # {}
+```
+
+---
+
+## 🔹 Průchod slovníkem
+```python
+for klic in osoba:
+    print(klic, osoba[klic])
+```
+
+Nebo více elegantně:
+```python
+for klic, hodnota in osoba.items():
+    print(f"{klic}: {hodnota}")
+```
+
+---
+
+## 🔹 Vnořený slovník
+```python
+student = {
+    "jmeno": "Eva",
+    "rocnik": 2,
+    "predmety": {
+        "matematika": 1,
+        "anglictina": 2
+    }
+}
+
+print(student["predmety"]["anglictina"])  # 2
+```
+
+---
+
+## 🔹 Užitečné metody slovníku
+| Metoda | Popis | Příklad |
+|--------|--------|----------|
+| `.keys()` | Vrátí všechny klíče | `osoba.keys()` |
+| `.values()` | Vrátí všechny hodnoty | `osoba.values()` |
+| `.items()` | Vrátí klíče i hodnoty jako dvojice | `osoba.items()` |
+| `.update()` | Sloučí dva slovníky | `osoba.update({"vek": 30})` |
+| `.get()` | Bezpečný přístup ke klíči | `osoba.get("mesto", "Neznámé")` |
+| `.pop()` | Odstraní a vrátí hodnotu | `osoba.pop("vek")` |
+| `.clear()` | Vyprázdní slovník | `osoba.clear()` |
+
+---
+
+## 💡 Shrnutí
+- Slovník ukládá dvojice klíč–hodnota.  
+- Klíče jsou unikátní a neměnitelné.  
+- Hodnoty lze měnit, přidávat i mazat.  
+- Na rozdíl od listu se přistupuje **přes klíč, ne přes index**.  
+- Vnořené slovníky umožňují ukládat komplexní data.
