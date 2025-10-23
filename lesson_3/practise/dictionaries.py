@@ -34,5 +34,27 @@
 uzivatel = {"jmeno": "Samuel", "vek": 55, "mesto": "Praha "}
 print(uzivatel["jmeno"])
 
+# 2 - DONE
 
-#2 - 
+uzivatel["email"] = "a@a.com"
+print(uzivatel)
+
+# 3 - DONE
+del uzivatel["mesto"]
+# uzivatel.pop("mesto", None)   # Nevyhodí chybu, i když by klíč neexistoval.
+print(uzivatel)
+
+# 4 - DONE
+student = {"jmeno": "Sam" , "rocnik": "1.", "predmety": {"matematika": 1, "anglictina": 3}}
+print(student["predmety"]["anglictina"])
+
+# 5 - DONE
+
+login = {"username": "admin", "password": "tajne"}
+heslo_input_user = input("Zadejte sve heslo: ")
+
+if heslo_input_user ==  login["password"]:
+    print("Přístup povolen")
+    
+else: 
+    print("Špatné heslo.")
